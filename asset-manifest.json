@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ShwetaSharmaaa/highsky_automation.git/static/css/main.ba989789.css",
+    "main.js": "/ShwetaSharmaaa/highsky_automation.git/static/js/main.34c42658.js",
+    "static/js/453.c1e3aa53.chunk.js": "/ShwetaSharmaaa/highsky_automation.git/static/js/453.c1e3aa53.chunk.js",
+    "index.html": "/ShwetaSharmaaa/highsky_automation.git/index.html",
+    "main.ba989789.css.map": "/ShwetaSharmaaa/highsky_automation.git/static/css/main.ba989789.css.map",
+    "main.34c42658.js.map": "/ShwetaSharmaaa/highsky_automation.git/static/js/main.34c42658.js.map",
+    "453.c1e3aa53.chunk.js.map": "/ShwetaSharmaaa/highsky_automation.git/static/js/453.c1e3aa53.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ba989789.css",
+    "static/js/main.34c42658.js"
+  ]
+}
