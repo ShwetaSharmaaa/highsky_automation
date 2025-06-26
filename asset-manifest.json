@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/highsky_automation/static/css/main.ba989789.css",
-    "main.js": "/highsky_automation/static/js/main.c7a18f4f.js",
+    "main.js": "/highsky_automation/static/js/main.b2882bb0.js",
     "static/js/453.c1e3aa53.chunk.js": "/highsky_automation/static/js/453.c1e3aa53.chunk.js",
     "index.html": "/highsky_automation/index.html",
     "main.ba989789.css.map": "/highsky_automation/static/css/main.ba989789.css.map",
-    "main.c7a18f4f.js.map": "/highsky_automation/static/js/main.c7a18f4f.js.map",
+    "main.b2882bb0.js.map": "/highsky_automation/static/js/main.b2882bb0.js.map",
     "453.c1e3aa53.chunk.js.map": "/highsky_automation/static/js/453.c1e3aa53.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ba989789.css",
-    "static/js/main.c7a18f4f.js"
+    "static/js/main.b2882bb0.js"
   ]
 }
