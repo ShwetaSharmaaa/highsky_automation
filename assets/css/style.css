@@ -677,7 +677,8 @@ button:hover .button-text {
 }
 
 .footer-logo img {
-    width: 150px !important;
+    /* width: 150px !important; */
+    width: 286px !important;
 }
 
 .footer h6 {
@@ -753,6 +754,8 @@ button:hover .button-text {
 
 .footer-icons {
     margin-right: 1rem !important;
+    margin-left: 0px !important;
+    font-size: xxx-large !important;
 }
 
 .address-bar {
@@ -1853,6 +1856,57 @@ color: coral; */
 }
   
 /**************************************SERVICES****************************************/
+/**************************************SCROLLBAR****************************************/
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 40px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0c94c5;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1191c0;
+}
+  
+
+/**************************************SCROLLBAR****************************************/
+
+
+/**************************************Bottom to top button****************************************/
+
+.scroll-to-top-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    background-color: #0c94c5;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.scroll-to-top-btn:hover {
+    background-color: #0a7a9e;
+}
+
+/**************************************Bottom to top button****************************************/
 
 
 /*###########################################################################################################################################*/
