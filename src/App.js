@@ -6,10 +6,13 @@ import Services from './Components/Services/Services';
 import ContactUs from './Components/ContactUs/ContactUs';
 import ServiceDetail from './Components/Services/ServiceDetail';
 import Products from './Components/Products/Products';
+import ScrollToTop from './Components/Layout/ScrollToTop';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/highsky_automation">
+    {/* <BrowserRouter> */}
+    <ScrollToTop />
       <Routes>
           <Route element={<Home />} path="/" />
           <Route element={<Home />} path="/home" />

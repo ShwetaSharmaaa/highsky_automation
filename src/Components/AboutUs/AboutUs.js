@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { Layout } from '../Layout/Layout';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import React, { useEffect } from 'react';
+import { Layout } from '../Layout/Layout';
 import GpsFixedIcon from '@mui/icons-material/GpsFixed';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
@@ -61,12 +61,15 @@ export default function AboutUs() {
                 {/* RIGHT COLUMN - IMAGES */}
                 <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                   <div className="image_boxes style_two" data-aos="fade-left" data-aos-duration="1000">
-                    <img src="assets/img/backgroundImages/shape-1.png" className="background_image" alt="shape" />
+                    {/* <img src="assets/img/backgroundImages/shape-1.png" className="background_image" alt="shape" /> */}
+                    <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/backgroundImages/shape-1.png`} className="background_image" alt="shape" />
                     <div className="image one" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
-                      <img src="assets/img/aboutUs/about-1.png" className="img-fluid" alt="about" />
+                      {/* <img src="assets/img/aboutUs/about-1.png" className="img-fluid" alt="about" /> */}
+                      <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/aboutUs/about-1.png`} className="img-fluid" alt="about" />
                     </div>
                     <div className="image two" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
-                      <img src="assets/img/aboutUs/about-1.png" className="img-fluid" alt="about" />
+                      {/* <img src="assets/img/aboutUs/about-1.png" className="img-fluid" alt="about" /> */}
+                      <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/aboutUs/about-1.png`} className="img-fluid" alt="about" />
                     </div>
                   </div>
                 </div>
@@ -151,8 +154,6 @@ export default function AboutUs() {
                   </div>
                   <div className="mr_bottom_30"></div>
                 </div>
-
-
               </div>
             </div>
           </div>

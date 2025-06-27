@@ -66,7 +66,8 @@ export default function Home() {
 
                   <div className="col-lg-6 col-md-12 abs">
                     <div className="about-thumb">
-                      <img src="assets/img/food_industry/food_industry.png" alt="about us" className="w-100" />
+                      {/* <img src="assets/img/food_industry/food_industry.png" alt="about us" className="w-100" /> */}
+                      <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/food_industry/food_industry.png`} alt="about us" className="w-100" />
                     </div>
                   </div>
                 </div>
@@ -83,7 +84,8 @@ export default function Home() {
                   </div>
                   <div className="col-lg-6 col-md-12 abs">
                     <div className="about-thumb">
-                      <img src="assets/img/food_industry/food_industry.png" alt="about us" className="w-100" />
+                      {/* <img src="assets/img/food_industry/food_industry.png" alt="about us" className="w-100" /> */}
+                      <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/food_industry/food_industry.png`} alt="about us" className="w-100" />
                     </div>
                   </div>
                 </div>
@@ -99,7 +101,8 @@ export default function Home() {
                   </div>
                   <div className="col-lg-6 col-md-12 abs">
                     <div className="about-thumb">
-                      <img src="assets/img/food_industry/food_industry.png" alt="about us" className="w-100" />
+                      {/* <img src="assets/img/food_industry/food_industry.png" alt="about us" className="w-100" /> */}
+                      <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/food_industry/food_industry.png`} alt="about us" className="w-100" />
                     </div>
                   </div>
                 </div>
@@ -128,7 +131,8 @@ export default function Home() {
             <div className="col-lg-4 col-md-6" data-aos="fade-right">
               <div className="service-thumb">
                 <Link to="#">
-                  <img src="assets/img/services/plc3.jpg" alt="Servo Drive" className="w-100" />
+                  {/* <img src="assets/img/services/plc3.jpg" alt="Servo Drive" className="w-100" /> */}
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/services/plc3.jpg`} alt="Servo Drive" className="w-100" />
                   <div className="service-content">
                     <h4>Servo Drives</h4>
                     <p>Achieve precise speed and torque control with our advanced servo drive solutions. Perfect for automation systems requiring high accuracy, our drives ensure smooth, consistent performance across various applications.</p>
@@ -140,7 +144,8 @@ export default function Home() {
             <div className="col-lg-4 col-md-6" data-aos="fade-up">
               <div className="service-thumb">
                 <Link to="#">
-                  <img src="assets/img/services/plc1.jpg" alt="Servo Drive" className="w-100" />
+                  {/* <img src="assets/img/services/plc1.jpg" alt="Servo Drive" className="w-100" /> */}
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/services/plc1.jpg`} alt="Servo Drive" className="w-100" />
                   <div className="service-content">
                     <h4>AC Drives</h4>
                     <p>Optimize motor control with our high-efficiency AC drives. Ideal for variable speed control, our AC drive solutions offer energy savings, smooth acceleration, and superior performance across industries.</p>
@@ -152,7 +157,8 @@ export default function Home() {
             <div className="col-lg-4 col-md-6" data-aos="fade-left">
               <div className="service-thumb">
                 <Link to="#">
-                  <img src="assets/img/services/plc4.jpg" alt="Servo Drive" className="w-100" />
+                  {/* <img src="assets/img/services/plc4.jpg" alt="Servo Drive" className="w-100" /> */}
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/services/plc4.jpg`} alt="Servo Drive" className="w-100" />
                   <div className="service-content">
                     <h4>PLC</h4>
                     <p>Unlock the power of automated industrial control with our high-performance PLC systems. Designed for precision, reliability, and ease of use, our PLC solutions optimize your production processes for greater efficiency.</p>
@@ -164,7 +170,8 @@ export default function Home() {
             <div className="col-lg-4 col-md-6" data-aos="fade-right">
               <div className="service-thumb">
                 <Link to="#">
-                  <img src="assets/img/services/plc5.jpg" alt="Servo Drive" className="w-100" />
+                  {/* <img src="assets/img/services/plc5.jpg" alt="Servo Drive" className="w-100" /> */}
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/services/plc5.jpg`} alt="Servo Drive" className="w-100" />
                   <div className="service-content">
                     <h4>Soft Starters</h4>
                     <p>Prevent motor damage and improve operational lifespan with our smart soft starter systems. Our solutions allow for smoother start-ups and optimal motor protection, ensuring energy-efficient performance in any application.</p>
@@ -176,7 +183,8 @@ export default function Home() {
             <div className="col-lg-4 col-md-6" data-aos="fade-up">
               <div className="service-thumb">
                 <Link to="#">
-                  <img src="assets/img/services/plc4.jpg" alt="Servo Drive" className="w-100" />
+                  {/* <img src="assets/img/services/plc4.jpg" alt="Servo Drive" className="w-100" /> */}
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/services/plc4.jpg`} alt="Servo Drive" className="w-100" />
                   <div className="service-content">
                     <h4>HMI</h4>
                     <p>Enhance operator efficiency and safety with our intuitive HMI solutions. Designed to provide real-time feedback and control over automated systems, our HMIs offer seamless interaction for streamlined operations.</p>
@@ -188,7 +196,8 @@ export default function Home() {
             <div className="col-lg-4 col-md-6" data-aos="fade-left">
               <div className="service-thumb">
                 <Link to="#">
-                  <img src="assets/img/services/plc.webp" alt="Servo Drive" className="w-100" />
+                  {/* <img src="assets/img/services/plc.webp" alt="Servo Drive" className="w-100" /> */}
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/services/plc.webp`} alt="Servo Drive" className="w-100" />
                   <div className="service-content">
                     <h4>HMI</h4>
                     <p>Enhance operator efficiency and safety with our intuitive HMI solutions. Designed to provide real-time feedback and control over automated systems, our HMIs offer seamless interaction for streamlined operations.</p>
@@ -413,70 +422,70 @@ export default function Home() {
             <div className="col-md-12 mt-5 clientsSection">
               <div className="client-section">
                 <div className="client-img">
-                  <img src="assets/img/clients/toshiba.png" alt="Toshiba" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/toshiba.png`} alt="Toshiba" className="w-100 img-height" />
                 </div>
 
                 <div className="client-img">
-                  <img src="assets/img/clients/hero.png" alt="Hero" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/hero.png`} alt="Hero" className="w-100 img-height" />
                 </div>
 
                 <div className="client-img">
-                  <img src="assets/img/clients/honda.png" alt="Honda" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/honda.png`} alt="Honda" className="w-100 img-height" />
                 </div>
 
                 <div className="client-img">
-                  <img src="assets/img/clients/itc.png" alt="Itc" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/itc.png`} alt="ITC" className="w-100 img-height" />
                 </div>
 
                 <div className="client-img">
-                  <img src="assets/img/clients/britannia.png" alt="Britannia" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/britannia.png`} alt="Britannia" className="w-100 img-height" />
                 </div>
               </div>
 
-              <div className="client-section ">
+              <div className="client-section">
                 <div className="client-img">
-                  <img src="assets/img/clients/schneider.png" alt="Schneider" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/schneider.png`} alt="Schneider" className="w-100 img-height" />
                 </div>
 
                 <div className="client-img">
-                  <img src="assets/img/clients/patanjali.png" alt="Patanjali" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/patanjali.png`} alt="Patanjali" className="w-100 img-height" />
                 </div>
 
                 <div className="client-img">
-                  <img src="assets/img/clients/cremica.png" alt="Cremica" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/cremica.png`} alt="Cremica" className="w-100 img-height" />
                 </div>
 
                 <div className="client-img">
-                  <img src="assets/img/clients/general_electric.png" alt="general_electric" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/general_electric.png`} alt="General Electric" className="w-100 img-height" />
                 </div>
 
                 <div className="client-img">
-                  <img src="assets/img/clients/parle.svg" alt="Parle" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/parle.svg`} alt="Parle" className="w-100 img-height" />
                 </div>
-
               </div>
 
               <div className="client-section border-0">
                 <div className="client-img">
-                  <img src="assets/img/clients/hmel.png" alit="Hmel" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/hmel.png`} alt="Hmel" className="w-100 img-height" />
                 </div>
 
                 <div className="client-img">
-                  <img src="assets/img/clients/priyagold.jpg" alt="Priyagold" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/priyagold.jpg`} alt="Priyagold" className="w-100 img-height" />
                 </div>
 
                 <div className="client-img">
-                  <img src="assets/img/clients/raja1.png" alt="Raja" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/raja1.png`} alt="Raja" className="w-100 img-height" />
                 </div>
 
                 <div className="client-img">
-                  <img src="assets/img/clients/woodward.png" alt="Woodward" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/woodward.png`} alt="Woodward" className="w-100 img-height" />
                 </div>
 
                 <div className="client-img">
-                  <img src="assets/img/clients/anmol.jpeg" alt="Anmol" className="w-100 img-height" />
+                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/clients/anmol.jpeg`} alt="Anmol" className="w-100 img-height" />
                 </div>
               </div>
+
             </div>
           </div>
         </div>

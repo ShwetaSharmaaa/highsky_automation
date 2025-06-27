@@ -1,5 +1,6 @@
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import ScrollToTopButton from "./ScrollToTopButton";
 
 export const Layout = ({ children }) => {
     return (
@@ -7,6 +8,7 @@ export const Layout = ({ children }) => {
             <Header />
             <div className="content-container">
                 {children}
+                <ScrollToTopButton />
             </div>
             <Footer />
         </div>

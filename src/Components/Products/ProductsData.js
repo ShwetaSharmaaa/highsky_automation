@@ -4,9 +4,8 @@ const ProductsData = [
         name: "Smart Sensor Kit",
         description: "An intelligent sensor kit for industrial automation and safety monitoring.",
         images: [
-            "/assets/img/products/sensor1.jpg",
-            "/assets/img/products/sensor2.jpg",
-            "/assets/img/products/sensor3.jpg"
+            `${process.env.REACT_APP_BASE_URL}/assets/img/services/plc.webp`,
+            `${process.env.REACT_APP_BASE_URL}/assets/img/clients/toshiba.png`
         ]
     },
     {
@@ -14,8 +13,8 @@ const ProductsData = [
         name: "Industrial Router",
         description: "Reliable industrial-grade router for IIOT and remote monitoring.",
         images: [
-            "/assets/img/products/router1.jpg",
-            "/assets/img/products/router2.jpg"
+            `${process.env.REACT_APP_BASE_URL}/assets/img/services/plc3.jpg`,
+            `${process.env.REACT_APP_BASE_URL}/assets/img/services/plc1.jpg`,
         ]
     },
     {
@@ -23,9 +22,8 @@ const ProductsData = [
         name: "VFD Drive System",
         description: "Variable Frequency Drive system for controlling motor speed and torque.",
         images: [
-            "/assets/img/products/drive1.jpg",
-            "/assets/img/products/drive2.jpg",
-            "/assets/img/products/drive3.jpg"
+            `${process.env.REACT_APP_BASE_URL}/assets/img/services/plc4.jpg`,
+            `${process.env.REACT_APP_BASE_URL}/assets/img/services/plc5.jpg`,
         ]
     },
     {
@@ -33,7 +31,7 @@ const ProductsData = [
         name: "Control Cabinet",
         description: "Pre-assembled and tested control cabinet for industrial use.",
         images: [
-            "/assets/img/products/cabinet1.jpg"
+            `${process.env.REACT_APP_BASE_URL}/assets/img/services/plc4.jpg`
         ]
     },
     {
@@ -41,8 +39,8 @@ const ProductsData = [
         name: "Wireless IO Module",
         description: "Wireless input/output module for remote monitoring.",
         images: [
-            "/assets/img/products/io1.jpg",
-            "/assets/img/products/io2.jpg"
+            `${process.env.REACT_APP_BASE_URL}/assets/img/services/plc.webp`,
+            `${process.env.REACT_APP_BASE_URL}/assets/img/clients/toshiba.png`
         ]
     }
 ];

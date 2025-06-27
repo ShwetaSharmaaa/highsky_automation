@@ -5,9 +5,17 @@ import { Layout } from "../Layout/Layout";
 export default function Products() {
   return (
     <Layout>
-      <section className="py-5 bg-light">
-        <div className="container">
-          <h2 className="mb-4 text-center fw-bold">Our Products</h2>
+    <section className="whoweare-section bg-grey">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-lg-10 col-md-12">
+            <div className="whoweare-dis">
+          <div className="mb-5 text-center" data-aos="fade-up">
+            <h3 className="heading mb-3 text-color">Explore Our Products</h3>
+            {/* <p className="text-muted mb-2">
+              Discover the range of specialized services Highsky Automation provides. Click on any offering to see a brief overview, and then proceed to view full details.
+            </p> */}
+          </div>
           <div className="row">
             {ProductsData.map((product) => (
               <div className="col-md-6 col-lg-4 mb-4" key={product.id}>
@@ -44,6 +52,9 @@ export default function Products() {
                 </div>
               </div>
             ))}
+          </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

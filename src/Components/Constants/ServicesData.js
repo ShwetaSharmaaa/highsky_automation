@@ -3,7 +3,7 @@ const servicesData = [
         id: 1,
         icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l3.75-3.75m0 0L11.25 6l3.75 3.75M7.5 9.75L11.25 13.5m0-3.75L15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25h.008v.008h-.008v-.008zM8.25 17.25h.008v.008H8.25v-.008zM12 17.25h.008v.008H12v-.008zM5.25 10.5H18.75"></path></svg>,
         name: "PLC based Control Panel",
-        imgUrl: "/assets/img/services/service1.jpg",
+        imgUrl: `${process.env.REACT_APP_BASE_URL}/assets/img/services/service1.jpg`,
         description:
             "A PLC (Programmable Logic Controller) based control panel is an electronic control system used to automate industrial processes.",
         detailedDescription: [
@@ -17,7 +17,7 @@ const servicesData = [
         id: 2,
         icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l-1.41-.513M3 10.5h1.5m13.5 0H21M12 3v1.5m0 15V21m-6.923 3.077l.707-.707M18.923 3.077l-.707.707"></path></svg>,
         name: "Drive based Control Panel",
-        imgUrl: "/assets/img/services/service2.jpg",
+        imgUrl: `${process.env.REACT_APP_BASE_URL}/assets/img/services/service2.jpg`,
         description:
             "A drive-based control panel is an electronic system used to regulate and control the operation of electrical drives in industrial applications.",
         detailedDescription: [
@@ -32,7 +32,7 @@ const servicesData = [
         id: 3,
         icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12A2.25 2.25 0 0020.25 14.25V3M3.75 14.25L10.5 7.5l3 3L20.25 3M3.75 3H20.25"></path></svg>,
         name: "PLC & DCS Programming",
-        imgUrl: "/assets/img/services/service3.jpg",
+        imgUrl: `${process.env.REACT_APP_BASE_URL}/assets/img/services/service3.jpg`,
         description:
             "Programming solutions for PLC and DCS systems to control and automate complex industrial processes.",
         detailedDescription: [
@@ -47,7 +47,7 @@ const servicesData = [
         id: 4,
         icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"></path></svg>,
         name: "Motion Control Programming & Configuration",
-        imgUrl: "/assets/img/services/service4.jpg",
+        imgUrl: `${process.env.REACT_APP_BASE_URL}/assets/img/services/service4.jpg`,
         description:
             "Precision control of machinery using advanced motion control hardware and programming techniques.",
         detailedDescription: [
@@ -66,7 +66,7 @@ const servicesData = [
         id: 5,
         icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12C6 7.029 10.029 3 15 3s9 4.029 9 9-4.029 9-9 9S6 16.971 6 12zm0 0H3m3 0a3 3 0 10-6 0 3 3 0 006 0zm12-6.75V12m0 6.75V12M12 21V12m0-6.75V12"></path><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5H17.25M6.75 16.5H17.25"></path></svg>,
         name: "PCC, MCC, APFC & DC Synchronizing Panel",
-        imgUrl: "/assets/img/services/service5.jpg",
+        imgUrl: `${process.env.REACT_APP_BASE_URL}/assets/img/services/service5.jpg`,
         description:
             "Industrial-grade panels for power control, motor management, power factor correction, and DC source synchronization.",
         detailedDescription: [
@@ -83,7 +83,7 @@ const servicesData = [
         id: 6,
         icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.75 20.25h-.008v.008H12.75v-.008z"></path></svg>,
         name: "Distributor IO Control Panel",
-        imgUrl: "/assets/img/services/service6.jpg",
+        imgUrl: `${process.env.REACT_APP_BASE_URL}/assets/img/services/service6.jpg`,
         description:
             "Centralized panel for managing input/output signals in complex industrial automation environments.",
         detailedDescription: [
@@ -100,7 +100,7 @@ const servicesData = [
         id: 7,
         icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M11.42 15.17l2.496-3.03c.52.832 1.464 1.433 2.504 1.433h.004a2.5 2.5 0 002.5-2.5v-.004a2.5 2.5 0 00-2.5-2.5h-.004a2.5 2.5 0 00-2.5 2.5v.004c0 1.04.601 1.984 1.433 2.504l-3.03 2.496m0 0l-4.68-4.68a2.25 2.25 0 00-3.182 0l-2.074 2.074a2.25 2.25 0 000 3.182l4.68 4.68m3.54-3.54z"></path></svg>,
         name: "System Upgradation / Retrofitting",
-        imgUrl: "/assets/img/services/service7.jpg",
+        imgUrl: `${process.env.REACT_APP_BASE_URL}/assets/img/services/service7.jpg`,
         description:
             "Modernize your existing control systems through expert upgradation and retrofitting solutions.",
         detailedDescription: [
@@ -118,7 +118,7 @@ const servicesData = [
         id: 8,
         icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12A2.25 2.25 0 0020.25 14.25V3M3.75 14.25L10.5 7.5l3 3L20.25 3M3.75 3H20.25"></path></svg>,
         name: "SCADA Based Control Panel",
-        imgUrl: "/assets/img/services/service8.jpg",
+        imgUrl: `${process.env.REACT_APP_BASE_URL}/assets/img/services/service8.jpg`,
         description:
             "Reliable SCADA panels for centralized monitoring and control of industrial processes.",
         detailedDescription: [
@@ -134,7 +134,7 @@ const servicesData = [
         id: 9,
         icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.75 20.25h-.008v.008H12.75v-.008z"></path></svg>,
         name: "Networking & IIOT",
-        imgUrl: "/assets/img/services/service9.jpg",
+        imgUrl: `${process.env.REACT_APP_BASE_URL}/assets/img/services/service9.jpg`,
         description:
             "Connect your industrial assets with smart networking and IIOT infrastructure for real-time insights.",
         detailedDescription: [

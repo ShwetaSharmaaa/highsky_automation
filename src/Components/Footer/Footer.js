@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Divider from '@mui/material/Divider';
+import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
+import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
+import AttachEmailRoundedIcon from '@mui/icons-material/AttachEmailRounded';
 
 export default function Footer() {
     return (
@@ -10,7 +13,8 @@ export default function Footer() {
                     {/* Company description */}
                     <div className="col-lg-3 col-md-12">
                         <div className="footer-logo">
-                            <img src="/assets/img/logo/highsky-logoo.png" className="w-100" />
+                            {/* <img src="/assets/img/logo/highsky-logoo.png" className="w-100" /> */}
+                            <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/logo/HIGHSKY LOGO.png`} alt="HighSky" />
                         </div>
                         <p className='text-wrap'>
                             {/* At HighSky Automation, we specialize in providing cutting-edge control panel solutions for various industries. Our focus is on delivering innovative, reliable, and efficient automation technologies that streamline operations, improve performance, and empower businesses to achieve greater success. */}
@@ -25,7 +29,8 @@ export default function Footer() {
                             {/* Contact No. */}
                             <div className="col-lg-4 col-md-4">
                                 <div className="address-bar">
-                                    <span className='footer-icons'><img src="/assets/img/icons/phone.svg" width="40" /></span>
+                                    {/* <span className='footer-icons'><img src="/assets/img/icons/phone.svg" width="40" /></span> */}
+                                    <LocalPhoneRoundedIcon className='text-color footer-icons' />
                                     <p><b>Phone</b><br /><Link to="tel:011-47529525">+91-124-4203372</Link></p>
                                 </div>
                             </div>
@@ -33,15 +38,17 @@ export default function Footer() {
                             {/* Email */}
                             <div className="col-lg-4 col-md-4">
                                 <div className="address-bar">
-                                    <span className='footer-icons'><img src="/assets/img/icons/email.svg" width="40" /></span>
-                                    <p><b>Email</b><br /><Link to="mailto:info@highsky.co.in">info@highsky.co.in</Link></p>
+                                    {/* <span className='footer-icons'><img src="/assets/img/icons/email.svg" width="40" /></span> */}
+                                    <AttachEmailRoundedIcon className='text-color footer-icons' />
+                                    <p><b>Email</b><br /><Link to="mailto:info@highskyautomation.com">info@highskyautomation.com</Link></p>
                                 </div>
                             </div>
 
                             {/* Location */}
                             <div className="col-md-4 col-md-4">
                                 <div className="address-bar">
-                                    <span><img src="/assets/img/icons/location.svg" width="50" /></span>
+                                    {/* <span><img src="/assets/img/icons/location.svg" width="50" /></span> */}
+                                    <LocationOnRoundedIcon className='text-color footer-icons' />
                                     <p><b>Location</b><br />#56,Hartron Complex, Electronic City
                                     Sector-18, Gurugram, Haryana-122015</p>
                                 </div>
@@ -58,7 +65,7 @@ export default function Footer() {
                                     <h6>Quick Links<span><Divider className='divider mt-2' variant="outset"/></span></h6>
                                     <ul>
                                         <li><Link to="/about_us">About us</Link></li>
-                                        <li><Link to="">Vision / Mission</Link></li>
+                                        <li><Link to="/about_us">Vision / Mission</Link></li>
                                         <li><Link to="">Training</Link></li>
                                         <li><Link to="/contact_us">Contact Us </Link></li>
                                     </ul>
@@ -85,7 +92,7 @@ export default function Footer() {
                                 <div className="ft-inner">
                                     <h6>Get in touch<span><Divider className='divider mt-2' variant="outset"/></span></h6>
                                     <Link to="/about_us" target="_blank">
-                                        <span className='footer-icons'><img src="/assets/img/icons/linkedin.svg" width="40" /></span>
+                                        <span className='footer-icons'><img src={`${process.env.REACT_APP_BASE_URL}/assets/img/icons/linkedin.svg`} width="40" /></span>
                                     </Link>
                                 </div>
                             </div>

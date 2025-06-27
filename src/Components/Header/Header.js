@@ -35,8 +35,8 @@ export default function Header() {
             <nav className="navbar navbar-light navbar-expand-lg bg-body-tertiary fixed navbar-fixed-top">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="#">
-                        <img src="/assets/img/logo/highsky-logoo.png" alt="HighSky" width={100} height={50} />
-                        {/* <img src="/assets/img/logo/HIGHSKY LOGO.png" alt="HighSky" height={50} /> */}
+                        {/* <img src="/assets/img/logo/highsky-logoo.png" alt="HighSky" width={100} height={50} /> */}
+                        <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/logo/HIGHSKY LOGO.png`} alt="HighSky" height={50} />
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onClick={handleMenu}>
                         <span className={`navbar-toggler-icon ${isMenuOpen ? 'cross' : ''}`}></span>
@@ -58,8 +58,8 @@ export default function Header() {
                                 </ul>
                             </li>
                             <li className="nav-item"><Link className={`nav-link ${location.pathname === '/services' ? 'nav-link-active' : ''}`}  to="/services">Services</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/about_us">Products</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/contact_us">Contact Us</Link></li>
+                            <li className="nav-item"><Link className={`nav-link ${location.pathname === '/products' ? 'nav-link-active' : ''}`}to="/products">Products</Link></li>
+                            <li className="nav-item"><Link className={`nav-link ${location.pathname === '/contact_us' ? 'nav-link-active' : ''}`} to="/contact_us">Contact Us</Link></li>
                         </ul>
                         {/* <Link className="getin-touch" onClick={handleEnquireClick}> ENQUIRE NOW</Link> */}
                         {/* <button className="getin-touch button" onClick={handleEnquireClick} data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">

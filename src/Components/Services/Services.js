@@ -23,7 +23,7 @@ export default function Services() {
 
   return (
     <Layout>
-      <section className="whoweare-section bg-grey" id="vision-mission">
+      <section className="whoweare-section bg-grey">
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-8 col-md-12">

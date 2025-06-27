@@ -58,7 +58,7 @@ html, body {
 }
 
 body {
-    background-color: #f4f0f0 !important;
+    background-color: #f7f5fb !important;
     font-family: "Work Sans", sans-serif !important;
     color: #000 !important;
     font-size: 16px !important;
@@ -157,7 +157,7 @@ button:focus:not(:focus-visible) {
     top: 0;
     left: 0;
     height: 4px;
-    background-color: #d64741;
+    background-color: #0c94c5;
     z-index: 10000;
     transition: width 0.9s ease;
 }
@@ -183,7 +183,7 @@ nav.navbar-expand-lg {
 }
 
 .navbar-brand {
-    width: 220px !important;
+    /* width: 220px !important; */
     margin: 10px 0 !important;
 }
 
@@ -205,12 +205,12 @@ nav.navbar-expand-lg {
 }
 
 .navbar-nav .nav-link.nav-link-active {
-    color: #d64741 !important;
-    border-bottom: 2px solid #d64741 !important;
+    color: #0c94c5 !important;
+    border-bottom: 2px solid #0c94c5 !important;
 }
 
 .navbar-expand-lg .nav-link:hover {
-    color: #d64741 !important;
+    color: #0c94c5 !important;
 }
 
 .navbar-nav {
@@ -220,7 +220,7 @@ nav.navbar-expand-lg {
 .getin-touch {
     font-size: 14px !important;
     padding: 8px 25px !important;
-    background: #d64741;
+    background: #0c94c5;
     padding: 6px 25px;
     color: #fff;
     letter-spacing: .5px;
@@ -230,13 +230,13 @@ nav.navbar-expand-lg {
 
 .getin-touch:hover {
     /* background:#000; */
-    /* color: #d64741; */
+    /* color: #0c94c5; */
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu {
     margin: 0;
     padding: 10px 20px;
-    border-top: 3px solid #d64741 !important;
+    border-top: 3px solid #0c94c5 !important;
     background: #fff;
     display: block;
     position: absolute;
@@ -344,7 +344,7 @@ button.enquire-now .circle {
     width: 3rem;
     height: 3rem;
     /* background: #282936; */
-    background: #d64741;
+    background: #0c94c5;
     border-radius: 1.625rem;
 }
 
@@ -453,7 +453,7 @@ button:hover .button-text {
 }
 
 .cssbuttons-io::before {
-    background: #d64741;
+    background: #0c94c5;
     color: ghostwhite;
     content: "";
     width: 120%;
@@ -494,7 +494,7 @@ button:hover .button-text {
 }
 
 .text-color {
-    color: #d64741;
+    color: #0c94c5;
 }
 
 .contact-detail p {
@@ -517,7 +517,7 @@ button:hover .button-text {
 }
 
 .step-labels-icon {
-    background: #d64741 !important;
+    background: #0c94c5 !important;
     color: white !important;
     width: 55px !important;
     height: 55px !important;
@@ -531,7 +531,7 @@ button:hover .button-text {
 }
 
 .heading-contactus span.span {
-    background-color: #d64741;
+    background-color: #0c94c5;
     /* background-color: #fff; */
     color: #fff;
     border-radius: 4px;
@@ -543,7 +543,7 @@ button:hover .button-text {
 }
 
 .heading-contactus h2 {
-    color: #d64741;
+    color: #0c94c5;
     font-size: 44px;
     font-weight: bold;
     line-height: var(--f-fs-font-fs54);
@@ -615,7 +615,7 @@ button:hover .button-text {
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    background: #d64741;
+    background: #0c94c5;
 }
 
 .front {
@@ -625,7 +625,7 @@ button:hover .button-text {
     border-radius: 5px;
     font-size: 1.1rem;
     color: white;
-    background: #d64741;
+    background: #0c94c5;
     will-change: transform;
     transform: translateY(-4px);
     transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
@@ -677,7 +677,8 @@ button:hover .button-text {
 }
 
 .footer-logo img {
-    width: 150px !important;
+    /* width: 150px !important; */
+    width: 286px !important;
 }
 
 .footer h6 {
@@ -753,6 +754,8 @@ button:hover .button-text {
 
 .footer-icons {
     margin-right: 1rem !important;
+    margin-left: 0px !important;
+    font-size: xxx-large !important;
 }
 
 .address-bar {
@@ -1025,7 +1028,7 @@ button:hover .button-text {
 
 .sub-title {
     display: block;
-    color: #d64741;
+    color: #0c94c5;
     margin-bottom: 15px;
     font-size: 16px;
     letter-spacing: 1px;
@@ -1053,7 +1056,7 @@ button:hover .button-text {
     left: 0;
     width: 50px;
     height: 1px;
-    background: #d64741;
+    background: #0c94c5;
 }
 
 .whatwe-content{
@@ -1133,7 +1136,7 @@ color: coral; */
 .offer-icon{
     position: absolute;
     top: -30px;
-    background: #d64741;
+    background: #0c94c5;
     color: white;
     width: 70px;
     height: 70px;
@@ -1247,7 +1250,7 @@ color: coral; */
 
 .heading {
     /* font-size: 40px; */
-    color: #2c3e50;
+    color: #314149;
     font-weight: 700;
     margin-bottom: 60px;
 }
@@ -1292,7 +1295,7 @@ color: coral; */
 .experience-number {
     font-size: 54px;
     font-weight: 800;
-    color: #2c3e50;
+    color: #314149;
     margin-bottom: 15px;
     position: relative;
     z-index: 2;
@@ -1312,11 +1315,11 @@ color: coral; */
 }
 
 .experience-item:hover .experience-number {
-    color: #d64741;
+    color: #0c94c5;
 }
 
 .experience-item:hover .experience-title {
-    color: #2c3e50;
+    color: #314149;
 }
 
 /**************************************HOME****************************************/
@@ -1384,19 +1387,19 @@ color: coral; */
     margin-bottom: 20px;
     transition: background 0.3s;
     padding: 10px 0;
-    border-left: 3px solid #d64741;
+    border-left: 3px solid #0c94c5;
     padding-left: 15px;
 }
 
 .feature-item:hover {
     background: #f0f4ff;
-    border-left-color: #d64741;
+    border-left-color: #0c94c5;
     border-radius: 6px;
 }
 
 .feature-item .icon {
     font-size: 22px;
-    color: #d64741;
+    color: #0c94c5;
     margin-top: 2px;
 }
 
@@ -1513,7 +1516,7 @@ color: coral; */
     left: -50px;
     width: 110px;
     height: 110px;
-    background: #d64741;
+    background: #0c94c5;
     color: #fff !important;
     border-radius: 50%;
     text-align: center;
@@ -1776,7 +1779,7 @@ color: coral; */
     width: 30px;
     border-radius: 50%;
     /* background-color: #333435; */
-    background-color: #d64741;
+    background-color: #0c94c5;
 }
 
 /* Rotate the icon when expanded */
@@ -1810,7 +1813,7 @@ color: coral; */
 
 .back-link {
     /* color: #38bdf8 !important; */
-    color: #d64741 !important;
+    color: #0c94c5 !important;
     /* Tailwind's text-sky-400 */
     font-weight: 500;
 }
@@ -1821,7 +1824,7 @@ color: coral; */
 }
 
 .icon-circle {
-    background-color: #d64741;
+    background-color: #0c94c5;
     /* Tailwind's bg-sky-500 */
     width: 48px;
     height: 48px;
@@ -1853,6 +1856,57 @@ color: coral; */
 }
   
 /**************************************SERVICES****************************************/
+/**************************************SCROLLBAR****************************************/
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 40px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0c94c5;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1191c0;
+}
+  
+
+/**************************************SCROLLBAR****************************************/
+
+
+/**************************************Bottom to top button****************************************/
+
+.scroll-to-top-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    background-color: #0c94c5;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.scroll-to-top-btn:hover {
+    background-color: #0a7a9e;
+}
+
+/**************************************Bottom to top button****************************************/
 
 
 /*###########################################################################################################################################*/
