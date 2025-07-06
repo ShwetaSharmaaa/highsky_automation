@@ -1618,69 +1618,29 @@ color: coral; */
 
 /**************************************SERVICES****************************************/
 
-.whoweare-section {
-    /* background: #128779; */
-    overflow: hidden;
-    position: relative; 
-}
-
-/* .bg-grey {
-    background: #232323 !important;
-} */
-
-.whoweare-section .container-fluid {
-    padding: 0 !important;
-}
-
-.whoweare-dis {
-    padding: 60px;
-}
-
-.whoweare-thumb{
-    padding: 25px 0px 0px 0px ;
-}
-
-.whoweare-section {
+/* .service-section {
     background-color: #f4f5f7;
     overflow: hidden;
 }
 
-.whoweare-section .container-fluid {
+.service-section .container-fluid {
     padding: 0 !important;
-}
+} */
 
-.whoweare-thumb {
-    padding: 25px 0 25px 0; 
-    position: relative;
-    border-radius: 10px; 
-    overflow: hidden;
-    /* box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); */
-}
-
-.whoweare-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    border-radius: 10px;
-}
-
-.whoweare-dis {
+.service-dis {
     padding: 60px;
     position: relative;
-    /* background-color: #ffffff; */
-    border-radius: 12px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /* border-radius: 12px; */
     z-index: 1;
 }
 
-/* Diagonal divider between image and content */
-.whoweare-section .row {
+.service-section .row {
     display: flex;
     flex-wrap: wrap;
     position: relative; 
 }
 
-.whoweare-section .row::before {
+.service-section .row::before {
     content: "";
     position: absolute;
     top: 0;
@@ -1856,6 +1816,307 @@ color: coral; */
 }
   
 /**************************************SERVICES****************************************/
+
+
+
+/**************************************PRODUCTS****************************************/
+:root {
+    --slate-800: #1e293b;
+    --slate-600: #475569;
+    --blue-600: #2563eb;
+    --page-bg: #f8fafc;
+  }
+  
+  /* Base styles for the entire section */
+  .products-section {
+    /* background-color: white; */
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  /* Section Header Styling (No changes here) */
+  .products-section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: center;
+    /* color: var(--slate-800); */
+    margin-bottom: 0.5rem;
+  }
+  .products-section-subtitle {
+    text-align: center;
+    /* color: var(--slate-600); */
+    margin-bottom: 3rem;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .product-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .product-card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .product-image-container {
+    position: relative;
+    height: 9rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .product-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .product-card:hover .product-card-image {
+    transform: scale(1.1);
+  }
+  
+  .product-image-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+
+  .product-card:hover .product-image-overlay {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-card-body {
+    padding: 1.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-card-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+  
+  .product-card-tagline {
+    /* color: var(--slate-600); */
+    font-size: 0.775rem;
+    flex-grow: 1;
+    margin-top: 0.25rem; 
+    margin-bottom: 0.6rem; 
+  }
+  
+  .product-view-details-btn {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #0c94c5;
+    align-self: flex-start;
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .product-card:hover .product-view-details-btn {
+    text-decoration: underline;
+  }
+
+  .product-view-details-btn svg {
+    font-size: 0.9rem;
+  }
+
+  /* ProductModal.css */
+
+/* ProductModal.css (Version for Thumbnails Below Image) */
+
+/* --- Main Modal Container --- */
+.product-details-modal {
+    max-width: 900px;
+    width: 90%;
+  }
+  
+  .product-details-modal .modal-content {
+    border: none;
+    border-radius: 16px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden; 
+  }
+  
+  .product-details-modal .modal-body {
+    padding: 0;
+  }
+  
+  
+  /* --- NEW: Left Column Overall Styling --- */
+  .modal-image-col {
+    background-color: #f1f5f9; /* Equivalent to Tailwind's slate-100 */
+  }
+  
+  
+  /* --- LEFT COLUMN: Image Itself --- */
+  .main-image-wrapper {
+    position: relative; /* For the optional gradient overlay */
+    overflow: hidden; /* Ensures image corners don't poke out if rounded */
+  }
+  
+  .main-image-wrapper > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Optional gradient overlay */
+  .main-image-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+    pointer-events: none;
+  }
+  
+  
+  /* --- NEW: Thumbnail Container (Positioned Below) --- */
+  .thumbnail-container-bottom {
+    /* padding: 8px; */
+    width: 100%;
+    flex-shrink: 0; /* Prevents the container from shrinking */
+  }
+  
+  .thumbnail-list {
+    display: flex;
+    gap: 8px; /* Equivalent to Tailwind's space-x-2 */
+    padding: 8px; /* Equivalent to Tailwind's p-2 */
+    background-color: #e2e8f0; /* Equivalent to Tailwind's slate-200 */
+    border-radius: 8px; /* Equivalent to Tailwind's rounded-lg */
+  }
+  
+  .thumbnail-image {
+    width: 64px;  /* Equivalent to Tailwind's w-16 */
+    height: 64px; /* Equivalent to Tailwind's h-16 */
+    object-fit: cover;
+    border-radius: 6px; /* Equivalent to Tailwind's rounded-md */
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease-in-out;
+    margin-left: 4px;
+  }
+  
+  .thumbnail-image:hover {
+    border-color: #94a3b8; /* Equivalent to Tailwind's hover:border-slate-400 */
+  }
+  
+  .thumbnail-image.active {
+    border-color: #3b82f6; /* Equivalent to Tailwind's border-blue-500 */
+    transform: scale(1.05);
+  }
+
+  .thumbnail-image:not(:last-child) {
+    margin-right: 0px;
+  }
+  
+  
+  /* --- RIGHT COLUMN: Product Details (No changes needed here) --- */
+  .modal-details-content {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+  }
+  
+  .modal-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  
+  .modal-title-custom {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #212529;
+    line-height: 1.2;
+    margin-right: 20px;
+  }
+  
+  .modal-tagline {
+    color: #0c94c5;
+    font-weight: 600;
+    /* font-size: 1.1rem; */
+    margin-bottom: 24px;
+  }
+  
+  .modal-description {
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    flex-grow: 1; 
+  }
+  
+  .modal-quote-footer {
+    margin-top: auto; 
+  }
+  
+  .quote-button {
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 767.98px) {
+    /* On mobile, the flex-direction of the row reverses, so we need to handle this */
+    .modal-image-col {
+        height: auto;
+        min-height: 350px; /* Give it a minimum height */
+    }
+  }
+
+
+  /* ProductModal.css */
+
+.thumbnail-list {
+    display: flex;
+    gap: 8px; 
+    padding: 8px; 
+    background-color: #e2e8f0; 
+    border-radius: 8px; 
+    
+    /* --- ADD THESE PROPERTIES FOR SCROLLING --- */
+    
+    /* 1. Enable horizontal overflow scrolling */
+    overflow-x: auto; 
+    
+    /* 2. Hide the default scrollbar */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+  }
+  
+  /* 3. Hide the default scrollbar for Webkit browsers (Chrome, Safari) */
+  .thumbnail-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  
+/**************************************PRODUCTS****************************************/
+
+
 /**************************************SCROLLBAR****************************************/
 
 ::-webkit-scrollbar {
@@ -1876,7 +2137,6 @@ color: coral; */
 ::-webkit-scrollbar-thumb:hover {
     background: #1191c0;
 }
-  
 
 /**************************************SCROLLBAR****************************************/
 
@@ -1893,6 +2153,7 @@ color: coral; */
     bottom: 40px;
     right: 20px;
     background-color: #0c94c5;
+    /* background: linear-gradient(135deg, #00AFEF, #606062, #373435); */
     color: white;
     border: none;
     border-radius: 50%;
