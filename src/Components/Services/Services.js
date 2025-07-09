@@ -59,7 +59,7 @@ export default function Services() {
                               height: '2.5rem',
                               width: '2.5rem',
                               borderRadius: '9999px', // full rounding
-                              backgroundColor: '#d64741', // bg-sky-600/30
+                              backgroundColor: '#0c94c5', // bg-sky-600/30
                               color: 'white', // text-sky-400
                               transition: 'background-color 0.2s ease'
                           }}>

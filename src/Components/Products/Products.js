@@ -1,63 +1,65 @@
-import React from "react";
-import ProductsData from "../Products/ProductsData";
-import { Layout } from "../Layout/Layout";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import React, { useEffect, useState } from 'react';
+import { Layout } from '../Layout/Layout'
+import ProductsData from "../Constants/ProductsData";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ProductModal from './ProductModal';
 
 export default function Products() {
+  const [showProduct, setShowProduct] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleShowProductModal = (product) => {
+    setShowProduct(true) 
+    setSelectedProduct(product)
+  }
+
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
     <Layout>
-    <section className="whoweare-section bg-grey">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-lg-10 col-md-12">
-            <div className="whoweare-dis">
-          <div className="mb-5 text-center" data-aos="fade-up">
-            <h3 className="heading mb-3 text-color">Explore Our Products</h3>
-            {/* <p className="text-muted mb-2">
-              Discover the range of specialized services Highsky Automation provides. Click on any offering to see a brief overview, and then proceed to view full details.
-            </p> */}
-          </div>
-          <div className="row">
-            {ProductsData.map((product) => (
-              <div className="col-md-6 col-lg-4 mb-4" key={product.id}>
-                <div className="card h-100 shadow-sm">
-                  {/* Image Carousel */}
-                  <div id={`carousel${product.id}`} className="carousel slide" data-bs-ride="carousel">
-                    <div className="carousel-inner">
-                      {product.images.map((img, index) => (
-                        <div className={`carousel-item ${index === 0 ? "active" : ""}`} key={index}>
-                          <img src={img} className="d-block w-100" alt={`Product ${product.id} Image ${index + 1}`} />
-                        </div>
-                      ))}
-                    </div>
-                    {product.images.length > 1 && (
-                      <>
-                        <button className="carousel-control-prev" type="button" data-bs-target={`#carousel${product.id}`} data-bs-slide="prev">
-                          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span className="visually-hidden">Previous</span>
-                        </button>
-                        <button className="carousel-control-next" type="button" data-bs-target={`#carousel${product.id}`} data-bs-slide="next">
-                          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span className="visually-hidden">Next</span>
-                        </button>
-                      </>
-                    )}
-                  </div>
+      <section className="products-section">
+        <div className="container">
+          <div>
+            <div className="mb-5 text-center" data-aos="fade-up">
+              <h3 className="heading mb-3 text-color">Our Products</h3>
+              <p className="text-muted mb-2">
+              Explore our innovative range of automation solutions designed to enhance
+              productivity and precision in your industry.
+              </p>
+            </div>
 
-                  {/* Product Content */}
-                  <div className="card-body">
-                    <h5 className="card-title fw-bold">{product.name}</h5>
-                    <p className="card-text">{product.description}</p>
-                    <button className="btn btn-primary">Enquire Now</button>
+            <div className="row g-4">
+              {ProductsData.map((product) => (
+                <div key={product.id} className="col-12 col-md-6 col-lg-4 col-xl-3">
+                  <div className="product-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <div className="product-image-container">
+                      <img
+                        src={product.images[0]}
+                        alt={product.name}
+                        className="product-card-image"
+                      />
+                      <div className="product-image-overlay"></div>
+                    </div>
+                    <div className="product-card-body">
+                      <h4 className="product-card-title m-0">{product.name}</h4>
+                      <p className="product-card-tagline">{product.tagline}</p>
+                      <button className="product-view-details-btn" onClick={() => handleShowProductModal(product)}>
+                        View Details
+                        <ArrowForwardIcon />
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
+      <ProductModal product={selectedProduct} show={showProduct} setShow={setShowProduct} />
     </Layout>
   );
 }

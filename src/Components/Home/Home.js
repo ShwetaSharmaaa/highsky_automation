@@ -1,8 +1,92 @@
-import React, { useEffect, useRef } from 'react'
-import { Layout } from '../Layout/Layout';
-import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
+import { Layout } from '../Layout/Layout';
+import { Col, Container, Row } from 'react-bootstrap';
+import React, { useEffect, useRef, useState } from 'react'
+import WarehouseIcon from '@mui/icons-material/Warehouse';
+import { industryData, services } from '../Constants/Home';
+import EngineeringIcon from '@mui/icons-material/Engineering';
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+
+const STATS_CONTENT = {
+  superTitle: "OUR EXPERTISE",
+  title: "Proven Success in",
+  highlightedTitle: "Automation",
+  description: "Our journey since 2012 is marked by tangible achievements. These numbers represent more than just data; they are milestones of trust, dedication, and the successful partnerships we've built with clients across industries.",
+  stats: [
+    {
+      value: "12+",
+      label: "YEARS OF EXPERIENCE",
+      icon: <EventAvailableIcon className='text-color' sx={{ fontSize: { xs: 30, sm: 40 } }} />
+    },
+    {
+      value: "40K",
+      label: "SQ.FT. MFG. UNIT",
+      icon: <WarehouseIcon className='text-color' sx={{ fontSize: { xs: 30, sm: 40 } }} />
+    },
+    {
+      value: "30+",
+      label: "EXPERT ENGINEERS",
+      icon: <EngineeringIcon className='text-color' sx={{ fontSize: { xs: 30, sm: 40 } }} />
+    },
+  ]
+};
+
+// --- Reusable Animated Counter ---
+const AnimatedCounter = ({ end, duration = 2000, isInView }) => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!isInView) { setCount(0); return; };
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      setCount(Math.floor(progress * end));
+      if (progress < 1) { window.requestAnimationFrame(step); }
+    };
+    window.requestAnimationFrame(step);
+  }, [isInView, end, duration]);
+  return <span>{count}</span>;
+};
+
+// --- Stat Item with its own Animation Logic ---
+const StatItem = ({ stat, index }) => {
+  const itemRef = useRef(null);
+  const [isInView, setIsInView] = useState(false);
+
+  const numericValue = parseInt(stat.value, 10);
+  const suffix = stat.value.replace(String(numericValue), '').trim();
+  const isNumeric = !isNaN(numericValue);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsInView(entry.isIntersecting);
+    }, { threshold: 0.6 });
+    if (itemRef.current) { observer.observe(itemRef.current); }
+    return () => {
+      if (itemRef.current) { observer.unobserve(itemRef.current); }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={itemRef}
+      className={`stat-item m-0 ${isInView ? 'is-in-view' : ''}`}
+      style={{ transitionDelay: `${index * 150}ms` }}
+    >
+      {/* <div className={`timeline-dot ${isInView ? 'is-in-view' : ''}`} /> */}
+      <div className="icon-wrapper">{stat.icon}</div>
+      <div className="m-0 text-start">
+        <p className="stat-value">
+          {isNumeric ? <AnimatedCounter end={numericValue} isInView={isInView} /> : stat.value}
+          {isNumeric && suffix}
+        </p>
+        <p className="stat-label mb-0">{stat.label}</p>
+      </div>
+    </div>
+  );
+};
 
 export default function Home() {
   const yearsRef = useRef(null);
@@ -10,13 +94,19 @@ export default function Home() {
   const clientsRef = useRef(null);
   const engineersRef = useRef(null);
 
+  // State to keep track of the active tab's index. Defaults to the first item (0).
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Get the currently active industry based on the activeIndex
+  const activeIndustry = industryData[activeIndex];
+
   useEffect(() => {
     let isMounted = true;
-  
+
     const animateCounter = (ref, target) => {
       let count = 0;
       const increment = target / 100;
-  
+
       const updateCounter = () => {
         if (!isMounted || !ref.current) return; // Prevent update if unmounted
         if (count < target) {
@@ -29,182 +119,96 @@ export default function Home() {
       };
       updateCounter();
     };
-  
+
     animateCounter(yearsRef, 20);
     animateCounter(projectsRef, 250);
     animateCounter(clientsRef, 150);
     animateCounter(engineersRef, 100);
-  
+
     return () => {
       isMounted = false; // This stops updateCounter after unmount
     };
-  }, []);  
+  }, []);
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: false, });
     AOS.refresh();
   }, []);
 
+  const HERO_IMAGES = {
+    imageUrls: [
+      'https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?q=80&w=2787&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?q=80&w=2787&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?q=80&w=2787&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?q=80&w=2787&auto=format&fit=crop',
+    ],
+  };
+
   return (
     <Layout>
       {/* Carousel section */}
-      <section className='pt-100'>
-        {/* <div className='container-fluid'> */}
-        <div className=''>
-          <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <div className="row">
-                  <div className="col-lg-6 col-md-12 m-0">
-                    <div className="carousel-content">
-                      <h1 className="heading">Food Industry <span className="text-color">Automation</span></h1>
-                      {/* <p>Automating food production processes to ensure faster output, consistent quality, and enhanced safety while meeting growing demand.</p> */}
-                      <p>Transforming food manufacturing with automated solutions that increase production speed, ensure top-quality standards, and reduce operational costs.</p>
-                      <Link to="" className="sasco-btn mt-5">Discover More </Link>
-                    </div>
-                  </div>
+      <section className="pt-100">
+        <div className="container-fluid">
+          <div className="align-items-center g-5">
+            <Row className='align-items-center'>
+              <Col lg={7} className="text-center text-lg-start">
+                <div className='d-flex flex-column justify-content-between align-items-start'>
+                  <h1 className="heading m-0 mb-5">Cutting-Edge Industrial <br /><span className="text-color">Automation</span></h1>
+                  <p className="mx-auto mx-lg-0 max-x-xl max-width-35">Since 2012, we've delivered end-to-end automation and control system integration, enhancing efficiency, safety, and performance across diverse industries.</p>
+                  {/* <Link to="" className="sasco-btn m-0 mt-4">Discover More →</Link> */}
+                  <Link
+                    to="#"
+                    className="m-0 mt-4 text-decoration-none fw-semibold border-bottom border-primary text-primary d-inline-block discover-link"
+                  >
+                    Discover More →
+                  </Link>
+                </div>
+              </Col>
 
-                  <div className="col-lg-6 col-md-12 abs">
-                    <div className="about-thumb">
-                      {/* <img src="assets/img/food_industry/food_industry.png" alt="about us" className="w-100" /> */}
-                      <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/food_industry/food_industry.png`} alt="about us" className="w-100" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="carousel-item">
-                <div className="row">
-                  <div className="col-lg-6 col-md-12 m-0">
-                    <div className="carousel-content">
-                      <h1 className="heading">Industrial <span className="text-color">Automation</span></h1>
-                      {/* <p>Streamlining industrial processes with innovative automation technologies that enhance operational efficiency, reduce downtime, and improve safety.</p> */}
-                      <p>Optimizing industrial processes with cutting-edge automation solutions that boost productivity, safety, and operational efficiency.</p>
-                      <Link to="" className="sasco-btn mt-5">Discover More </Link>
-                    </div>
-                  </div>
-                  <div className="col-lg-6 col-md-12 abs">
-                    <div className="about-thumb">
-                      {/* <img src="assets/img/food_industry/food_industry.png" alt="about us" className="w-100" /> */}
-                      <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/food_industry/food_industry.png`} alt="about us" className="w-100" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="carousel-item">
-                <div className="row">
-                  <div className="col-lg-6 col-md-12 m-0">
-                    <div className="carousel-content">
-                      <h1 className="heading">Automobiles</h1>
-                      <p>Major manufacturers are investing heavily in sustainable solutions to reduce their carbon footprint and meet global emission standards.</p>
-                      <Link to="" className="sasco-btn mt-5">Discover More </Link>
-                    </div>
-                  </div>
-                  <div className="col-lg-6 col-md-12 abs">
-                    <div className="about-thumb">
-                      {/* <img src="assets/img/food_industry/food_industry.png" alt="about us" className="w-100" /> */}
-                      <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/food_industry/food_industry.png`} alt="about us" className="w-100" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Previous</span>
-            </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-              <span className="carousel-control-next-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Next</span>
-            </button>
+              <Col lg={5}>
+                <Row className="g-4">
+                  <Col xs={4}>
+                    <img src={HERO_IMAGES.imageUrls[0]} alt="Automation 1" className="img-cover rounded-3 shadow-lg" data-aos="fade-up" data-aos-delay="0" data-aos-duration="800" />
+                  </Col>
+                  <Col xs={8}>
+                    <img src={HERO_IMAGES.imageUrls[1]} alt="Automation 2" className="img-cover rounded-3 shadow-lg" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" />
+                  </Col>
+                  <Col xs={8}>
+                    <img src={HERO_IMAGES.imageUrls[2]} alt="Automation 3" className="img-cover rounded-3 shadow-lg" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" />
+                  </Col>
+                  <Col xs={4}>
+                    <img src={HERO_IMAGES.imageUrls[3]} alt="Automation 4" className="img-cover rounded-3 shadow-lg" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800" />
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
           </div>
         </div>
       </section>
 
       <section className="pt-100 service-sec">
         <div className="container-fluid">
+          <div className="col-md-12 text-center mb-5">
+            <span className="sub-title">OUR SERVICES</span>
+            <h2 className="heading">
+              Elevate Your Automation with <br />
+              Highsky <span className="text-color">Industrial Solutions</span>
+            </h2>
+          </div>
           <div className="row">
-            <div className="col-md-12 text-center">
-              <span className="sub-title">OUR SERVICES</span>
-              <h2 className="heading">Elevate Your Automation with <br />Highsky <span className="text-color">Industrial Solutions</span></h2>
-            </div>
-
-            <div className="col-lg-4 col-md-6" data-aos="fade-right">
-              <div className="service-thumb">
-                <Link to="#">
-                  {/* <img src="assets/img/services/plc3.jpg" alt="Servo Drive" className="w-100" /> */}
-                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/services/plc3.jpg`} alt="Servo Drive" className="w-100" />
-                  <div className="service-content">
-                    <h4>Servo Drives</h4>
-                    <p>Achieve precise speed and torque control with our advanced servo drive solutions. Perfect for automation systems requiring high accuracy, our drives ensure smooth, consistent performance across various applications.</p>
-                  </div>
-                </Link>
+            {services.map((service, idx) => (
+              <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx} data-aos={service.aosPosition}>
+                <div className="service-thumb">
+                  <Link to="#">
+                    <img src={service.image} alt={service.title} className="w-100" />
+                    <div className="service-content">
+                      <h4>{service.title}</h4>
+                      <p>{service.description}</p>
+                    </div>
+                  </Link>
+                </div>
               </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6" data-aos="fade-up">
-              <div className="service-thumb">
-                <Link to="#">
-                  {/* <img src="assets/img/services/plc1.jpg" alt="Servo Drive" className="w-100" /> */}
-                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/services/plc1.jpg`} alt="Servo Drive" className="w-100" />
-                  <div className="service-content">
-                    <h4>AC Drives</h4>
-                    <p>Optimize motor control with our high-efficiency AC drives. Ideal for variable speed control, our AC drive solutions offer energy savings, smooth acceleration, and superior performance across industries.</p>
-                  </div>
-                </Link>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6" data-aos="fade-left">
-              <div className="service-thumb">
-                <Link to="#">
-                  {/* <img src="assets/img/services/plc4.jpg" alt="Servo Drive" className="w-100" /> */}
-                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/services/plc4.jpg`} alt="Servo Drive" className="w-100" />
-                  <div className="service-content">
-                    <h4>PLC</h4>
-                    <p>Unlock the power of automated industrial control with our high-performance PLC systems. Designed for precision, reliability, and ease of use, our PLC solutions optimize your production processes for greater efficiency.</p>
-                  </div>
-                </Link>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6" data-aos="fade-right">
-              <div className="service-thumb">
-                <Link to="#">
-                  {/* <img src="assets/img/services/plc5.jpg" alt="Servo Drive" className="w-100" /> */}
-                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/services/plc5.jpg`} alt="Servo Drive" className="w-100" />
-                  <div className="service-content">
-                    <h4>Soft Starters</h4>
-                    <p>Prevent motor damage and improve operational lifespan with our smart soft starter systems. Our solutions allow for smoother start-ups and optimal motor protection, ensuring energy-efficient performance in any application.</p>
-                  </div>
-                </Link>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6" data-aos="fade-up">
-              <div className="service-thumb">
-                <Link to="#">
-                  {/* <img src="assets/img/services/plc4.jpg" alt="Servo Drive" className="w-100" /> */}
-                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/services/plc4.jpg`} alt="Servo Drive" className="w-100" />
-                  <div className="service-content">
-                    <h4>HMI</h4>
-                    <p>Enhance operator efficiency and safety with our intuitive HMI solutions. Designed to provide real-time feedback and control over automated systems, our HMIs offer seamless interaction for streamlined operations.</p>
-                  </div>
-                </Link>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6" data-aos="fade-left">
-              <div className="service-thumb">
-                <Link to="#">
-                  {/* <img src="assets/img/services/plc.webp" alt="Servo Drive" className="w-100" /> */}
-                  <img src={`${process.env.REACT_APP_BASE_URL}/assets/img/services/plc.webp`} alt="Servo Drive" className="w-100" />
-                  <div className="service-content">
-                    <h4>HMI</h4>
-                    <p>Enhance operator efficiency and safety with our intuitive HMI solutions. Designed to provide real-time feedback and control over automated systems, our HMIs offer seamless interaction for streamlined operations.</p>
-                  </div>
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -214,18 +218,18 @@ export default function Home() {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12 text-center">
-              <span className="sub-title">WHAT WE OFFER</span>
-              <h2 className="heading fs-34 mb-40">All The Features  <span className="text-color">You Need</span></h2>
+              <span className="sub-title">OUR CORE EXPERTISE</span>
+              <h2 className="heading fs-34 mb-40">Comprehensive Solutions for <span className="text-color">Every Need</span></h2>
             </div>
             <div className="col-lg-4 col-md-6" data-aos="fade-right">
               <div className='card box-shadow'>
                 <div className="whatwe-icon">
                   <div className='offer-icon'>
-                    <i className="fa-solid fa-thumbs-up"></i>
+                    <i className="fa-solid fa-microchip"></i>
                   </div>
                   <div className="whatwe-content">
-                    <h4>Single Touch Control</h4>
-                    <p>Manage your home’s devices with a single touch. Our user-friendly interface simplifies home management, making it easier than ever.</p>
+                    <h4 className='fw-bold'>DCS & PLC-Based Panels</h4>
+                    <p>Design, development, and commissioning of sophisticated PLC and DCS-based control panels for any industrial application.</p>
                   </div>
                 </div>
               </div>
@@ -235,11 +239,11 @@ export default function Home() {
               <div className='card box-shadow'>
                 <div className="whatwe-icon">
                   <div className='offer-icon'>
-                    <i className="fa-solid fa-thumbs-up"></i>
+                    <i className="fa-solid fa-bolt"></i>
                   </div>
                   <div className="whatwe-content">
-                    <h4>Biometric Control</h4>
-                    <p>Our biometric systems offer advanced security with minimal effort. Enjoy a seamless, wireless setup that removes the need for complicated installations.</p>
+                    <h4 className='fw-bold'>LT Power Panels</h4>
+                    <p>Manufacturing of high-quality LT Power Panels ensuring safe and efficient electricity distribution for your facility.</p>
                   </div>
                 </div>
               </div>
@@ -249,11 +253,11 @@ export default function Home() {
               <div className='card box-shadow'>
                 <div className="whatwe-icon">
                   <div className='offer-icon'>
-                    <i className="fa-solid fa-thumbs-up"></i>
+                    <i className="fa-solid fa-arrows-rotate"></i>
                   </div>
                   <div className="whatwe-content">
-                    <h4>Control From Anywhere</h4>
-                    <p>Custom Control System is tailored to integrate all your lighting solutions into one user-friendly interface, giving you complete control.</p>
+                    <h4 className='fw-bold'>DG Synchronization</h4>
+                    <p>Expertise in creating auto synchronization panels for multiple DG sets, ensuring uninterrupted power.</p>
                   </div>
                 </div>
               </div>
@@ -263,11 +267,11 @@ export default function Home() {
               <div className='card box-shadow'>
                 <div className="whatwe-icon">
                   <div className='offer-icon'>
-                    <i className="fa-solid fa-thumbs-up"></i>
+                    <i className="fa-solid fa-sliders-h"></i>
                   </div>
                   <div className="whatwe-content">
-                    <h4>Voice Control</h4>
-                    <p>Control your home with just your voice. Our systems integrate with leading voice assistants, giving you hands-free command over your environment.</p>
+                    <h4 className='fw-bold'>SCADA & HMI Programming</h4>
+                    <p>Developing user-friendly SCADA systems and HMI interfaces for seamless process control and monitoring.</p>
                   </div>
                 </div>
               </div>
@@ -277,11 +281,11 @@ export default function Home() {
               <div className='card box-shadow'>
                 <div className="whatwe-icon">
                   <div className='offer-icon'>
-                    <i className="fa-solid fa-thumbs-up"></i>
+                    <i className="fa-solid fa-cogs"></i>
                   </div>
                   <div className="whatwe-content">
-                    <h4>Scheduling</h4>
-                    <p>Automate your daily routines. Schedule your devices to operate according to your lifestyle, ensuring your home is always in sync with your needs.</p>
+                    <h4 className='fw-bold'>System Integration & AMC</h4>
+                    <p>Providing complete system integration and offering Annual Maintenance Contracts to ensure long-term operational excellence.</p>
                   </div>
                 </div>
               </div>
@@ -291,11 +295,11 @@ export default function Home() {
               <div className='card box-shadow'>
                 <div className="whatwe-icon">
                   <div className='offer-icon'>
-                    <i className="fa-solid fa-thumbs-up"></i>
+                    <i className="fa-solid fa-plug"></i>
                   </div>
                   <div className="whatwe-content">
-                    <h4>Tech Support</h4>
-                    <p>We’re here for you. Our dedicated tech support team is always available to assist you with any questions or issues, ensuring your smart home runs smoothly.</p>
+                    <h4 className='fw-bold'>Relay-Based Control Panels</h4>
+                    <p>Delivering reliable and cost-effective relay-based control panels for a wide range of automation tasks.</p>
                   </div>
                 </div>
               </div>
@@ -328,46 +332,77 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="experience-sec pt-100" data-aos="zoom-in">
-        <div className="container">
-          <div className="row text-center">
-            <div className="col-md-12">
-              <span className="sub-title">OUR EXPERTISE</span>
-              <h2 className="heading fs-34">
-                Proven Success in Automation
+      <section className="pt-100 industries-section">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <span className="sub-title">INDUSTRIES WE SERVE</span>
+              <h2 className="heading mb-40">
+                Providing Automation Solutions Across{' '}
+                <span className="text-color">Key Sectors</span>
               </h2>
             </div>
           </div>
-          <div className="row text-center">
-            {/* Years of Experience */}
-            <div className="col-lg-3 col-md-6">
-              <div className="experience-item">
-                <h3 className="experience-number" ref={yearsRef}>0</h3>
-                <p className="experience-title">Years of Experience</p>
-              </div>
+
+          <div className="industry-flex-container">
+            <div className="industry-tabs-wrapper">
+              {industryData.map((industry, index) => (
+                <div
+                  key={index}
+                  className={`industry-tab m-0 ${index === activeIndex ? 'active' : ''}`}
+                  onMouseEnter={() => setActiveIndex(index)}
+                >
+                  <div className="icon-wrapper m-0 me-3">
+                    <i className={industry.icon}></i>
+                  </div>
+                  <span className='m-0'>{industry.name}</span>
+                </div>
+              ))}
             </div>
 
-            {/* Completed Projects */}
-            <div className="col-lg-3 col-md-6">
-              <div className="experience-item">
-                <h3 className="experience-number" ref={projectsRef}>0</h3>
-                <p className="experience-title">Completed Projects</p>
+            {/* Right Column: Image Display */}
+            <div className="industry-image-display">
+              {industryData.map((industry, index) => (
+                <img
+                  key={industry.name}
+                  src={industry.image}
+                  alt={industry.name}
+                  className={`industry-image ${index === activeIndex ? 'visible' : ''}`}
+                />
+              ))}
+              <div className="image-caption">
+                <h4>{industryData[activeIndex].name}</h4>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Clients */}
-            <div className="col-lg-3 col-md-6">
-              <div className="experience-item">
-                <h3 className="experience-number" ref={clientsRef}>0</h3>
-                <p className="experience-title">Happy Clients</p>
+      <section className="pt-100">
+        <div className='experience-sec'>
+          <div className="container-fluid">
+            <div className="row align-items-center">
+              {/* Years of Experience */}
+              <div className="col-lg-6 text-center text-lg-start">
+                <div className="section-header">
+                  <span className="sub-title">OUR EXPERTISE</span>
+                  <h2 className="heading text-white">
+                    Proven Success in <span className="text-color">Automation</span>
+                  </h2>
+                  <p className="description ms-0 me-0">Our journey since 2012 is marked by tangible achievements. These numbers represent more than just data; they are milestones of trust, dedication, and the successful partnerships we've built with clients across industries.</p>
+                </div>
               </div>
-            </div>
 
-            {/* Engineers */}
-            <div className="col-lg-3 col-md-6">
-              <div className="experience-item">
-                <h3 className="experience-number" ref={engineersRef}>0</h3>
-                <p className="experience-title">Expert Engineers</p>
+              {/* Completed Projects */}
+              <div className="col-lg-6">
+                <div className="timeline-wrapper">
+                  {/* <div className="timeline-line" /> */}
+                  <div className="timeline-items" data-aos="zoom-in">
+                    {STATS_CONTENT.stats.map((stat, index) => (
+                      <StatItem key={index} stat={stat} index={index} />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

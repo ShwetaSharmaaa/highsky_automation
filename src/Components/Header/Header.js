@@ -45,7 +45,7 @@ export default function Header() {
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item"><Link className={`nav-link ${location.pathname === '/' ? 'nav-link-active' : ''}`} to="/">Home</Link></li>
                             <li className="nav-item"><Link className={`nav-link ${location.pathname === '/about_us' ? 'nav-link-active' : ''}`} to="/about_us">About Us</Link></li>
-                            <li className="nav-item dropdown">
+                            {/* <li className="nav-item dropdown">
                                 <Link to="/services" className={`nav-link ${location.pathname === '/services' ? 'nav-link-active' : ''}`} role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Services  <i className="fa fa-angle-down" aria-hidden="true"></i>
                                 </Link>
@@ -56,7 +56,7 @@ export default function Header() {
                                     <li><Link className="nav-link" to="#">Softstaters</Link></li>
                                     <li><Link className="nav-link" to="#">Servo Drive</Link></li>
                                 </ul>
-                            </li>
+                            </li> */}
                             <li className="nav-item"><Link className={`nav-link ${location.pathname === '/services' ? 'nav-link-active' : ''}`}  to="/services">Services</Link></li>
                             <li className="nav-item"><Link className={`nav-link ${location.pathname === '/products' ? 'nav-link-active' : ''}`}to="/products">Products</Link></li>
                             <li className="nav-item"><Link className={`nav-link ${location.pathname === '/contact_us' ? 'nav-link-active' : ''}`} to="/contact_us">Contact Us</Link></li>
@@ -83,7 +83,7 @@ export default function Header() {
             </nav>
 
             {/* Enquire now Offcanvas */}
-            <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div className="offcanvas offcanvas-end" tabIndexx="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                 <div className="offcanvas-header">
                     <h5 className="offcanvas-title" id="offcanvasExampleLabel">Enquire Now</h5>
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -91,15 +91,15 @@ export default function Header() {
                 <div className="offcanvas-body">
                 <form>
                     <div className="mb-3">
-                        <label for="fullName" className="form-label">Name</label>
+                        <label htmlFor="fullName" className="form-label">Name</label>
                         <input type="name" className="form-control" id="fullName" name="fullName" aria-describedby="fullName"/>
                     </div>
                     <div className="mb-3">
-                        <label for="email" className="form-label">Email</label>
+                        <label htmlFor="email" className="form-label">Email</label>
                         <input type="email" className="form-control" id="email" name="email" aria-describedby="emailHelp"/>
                     </div>
                     <div className="mb-3">
-                        <label for="purpose" className="form-label">Purpose</label>
+                        <label htmlFor="purpose" className="form-label">Purpose</label>
                         <input type="name" className="form-control" id="purpose" name="purpose" aria-describedby="purpose"/>
                     </div>
                     <div className="mb-3">

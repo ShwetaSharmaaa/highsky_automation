@@ -87,7 +87,7 @@ function ServiceDetail() {
                                             height: '2.5rem',
                                             width: '2.5rem',
                                             borderRadius: '9999px',
-                                            backgroundColor: '#d64741',
+                                            backgroundColor: '#0c94c5',
                                             color: 'white',
                                             transition: 'background-color 0.2s ease'
                                         }}>

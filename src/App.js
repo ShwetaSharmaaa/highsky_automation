@@ -10,8 +10,8 @@ import ScrollToTop from './Components/Layout/ScrollToTop';
 
 function App() {
   return (
-    <BrowserRouter basename="/highsky_automation">
-    {/* <BrowserRouter> */}
+    // <BrowserRouter basename="/highsky_automation">
+    <BrowserRouter basename="/">
     <ScrollToTop />
       <Routes>
           <Route element={<Home />} path="/" />
