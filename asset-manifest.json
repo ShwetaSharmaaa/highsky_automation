@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/highsky_automation/static/css/main.ba989789.css",
-    "main.js": "/highsky_automation/static/js/main.eb77e373.js",
-    "static/js/453.c1e3aa53.chunk.js": "/highsky_automation/static/js/453.c1e3aa53.chunk.js",
-    "index.html": "/highsky_automation/index.html",
-    "main.ba989789.css.map": "/highsky_automation/static/css/main.ba989789.css.map",
-    "main.eb77e373.js.map": "/highsky_automation/static/js/main.eb77e373.js.map",
-    "453.c1e3aa53.chunk.js.map": "/highsky_automation/static/js/453.c1e3aa53.chunk.js.map"
+    "main.css": "/static/css/main.ba989789.css",
+    "main.js": "/static/js/main.84f5b394.js",
+    "static/js/453.c1e3aa53.chunk.js": "/static/js/453.c1e3aa53.chunk.js",
+    "index.html": "/index.html",
+    "main.ba989789.css.map": "/static/css/main.ba989789.css.map",
+    "main.84f5b394.js.map": "/static/js/main.84f5b394.js.map",
+    "453.c1e3aa53.chunk.js.map": "/static/js/453.c1e3aa53.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ba989789.css",
-    "static/js/main.eb77e373.js"
+    "static/js/main.84f5b394.js"
   ]
 }
